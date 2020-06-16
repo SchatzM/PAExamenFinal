@@ -2,3 +2,7 @@
 .table, .msr-dark {
 	background-color: #000002!important;
 }
+
+.msr-relojMundial:not(:first-child) {
+	border-top: 1px solid #202020;
+}
