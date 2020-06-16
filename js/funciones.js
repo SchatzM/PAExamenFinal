@@ -10,19 +10,23 @@ const	ciudades = {
 		obtenerHoraCiudad = (diferenciaHoraria) => {
 			let fecha = new Date (),
 				fechaEstandar = fecha.getTime () + (fecha.getTimezoneOffset () * 60000),
-				fechaConOffset = new Date (fechaEstandar + (3600000 * diferenciaHoraria));
-
-			return `${('0'+fechaConOffset.getHours ()).slice (-2)}:${('0' + fechaConOffset.getMinutes ()).slice (-2)}`;
+				fechaConOffset = new Date (fechaEstandar + (3600000 * diferenciaHoraria)),
+				datos = {
+					hora: `${('0'+fechaConOffset.getHours ()).slice (-2)}:${('0' + fechaConOffset.getMinutes ()).slice (-2)}`,
+					queDia: fecha.getDay()>fechaConOffset.getDay() ? 'ayer' : fecha.getDay()<fechaConOffset.getDay() ? 'mañana' : 'hoy'
+				};
+				return datos;
 		},
 		insertarDatos = (ciudad) => {
 			if (ciudad in ciudades) {
-				const elementos = {
+				const datosReloj = obtenerHoraCiudad (ciudades[ciudad]),
+				elementos = {
 					base: document.querySelector('.msr-relojMundial tbody'),
 					nuevaHora: document.createElement ('tr'),
 					plantilla: () => {
-						elementos.nuevaHora.innerHTML = `<tr class="msr-entradaReloj"><td><h2 class="subtitle msr-husoHorario">${ciudades[ciudad]}H</h2>`+
+						elementos.nuevaHora.innerHTML = `<tr class="msr-entradaReloj"><td><h2 class="subtitle is-capitalized msr-husoHorario">${datosReloj.queDia}, ${ciudades[ciudad]}H</h2>`+
 						`<h1 class="title msr-Ciudad has-text-white">${ciudad}</h1>`+
-						`</td><td><h1 class="is-size-1 has-text-right has-text-white msr-horaReloj">${obtenerHoraCiudad (ciudades[ciudad])}</h1>`+
+						`</td><td><h1 class="is-size-1 has-text-right has-text-white msr-horaReloj">${datosReloj.hora}</h1>`+
 						`</td></tr>`;
 						elementos.base.appendChild(elementos.nuevaHora);
 					},
