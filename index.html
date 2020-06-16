@@ -41,20 +41,28 @@
 	<body>
 		<main>
 			<section class="hero is-fullheight msr-dark">
-				<div class="hero-head">
-					<nav class="navbar">
-						<div class="container"></div>
-					</nav>
-				</div>
+				<nav class="navbar" role="navigation" aria-label="dropdown navigation">
+					<div class="navbar-menu">
+						<div class="navbar-end">
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a class="navbar-link is-arrowless">
+									<span class="icon is-medium msr-icon-plus">
+										<i class="fas fa-plus"></i>
+									</span>
+								</a>
 
+								<div class="navbar-dropdown is-right"></div>
+							</div>
+						</div>
+					</div>
+				</nav>
 				<div class="hero-body">
 					<div class="container has-text-centered">
 						<div class="columns is-mobile">
 							<div class="column is-half is-offset-one-quarter"></div>
-							</div>
-
-							<div class="columns is-mobile">
-							<div class="column is-three-fifths is-offset-one-fifth">
+						</div>
+						<div class="columns is-mobile is-centered">
+							<div class="column is-full offsetFix">
 								<table class="table is-fullwidth msr-relojMundial">
 									<thead>
 										<tr>
@@ -64,24 +72,13 @@
 											<th></th>
 										</tr>
 									</thead>
-									<tbody>
-									</tbody>
+									<tbody></tbody>
 								</table>
 							</div>
-							</div>
-
-							<div class="columns is-mobile">
-							<div class="column is-4 is-offset-8"></div>
-							</div>
-
-							<div class="columns is-mobile">
-							<div class="column is-11 is-offset-1"></div>
 						</div>
 					</div>
 				</div>
-
-				<div class="hero-foot"></div>
-				</section>
+			</section>
 		</main>
 		<script type="text/javascript" src="js/funciones.js"></script>
 	</body>
