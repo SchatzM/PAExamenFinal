@@ -12,7 +12,7 @@ const	ciudades = {
 				fechaEstandar = fecha.getTime () + (fecha.getTimezoneOffset () * 60000),
 				fechaConOffset = new Date (fechaEstandar + (3600000 * diferenciaHoraria));
 
-			return `${fechaConOffset.getHours ()}:${fechaConOffset.getMinutes ()}`;
+			return `${('0'+fechaConOffset.getHours ()).slice (-2)}:${('0' + fechaConOffset.getMinutes ()).slice (-2)}`;
 		},
 		insertarDatos = (ciudad) => {
 			if (ciudad in ciudades) {
