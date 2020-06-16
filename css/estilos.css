@@ -1,1 +1,4 @@
 @charset "UTF-8";
+.table, .msr-dark {
+	background-color: #000002!important;
+}
