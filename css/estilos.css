@@ -6,3 +6,12 @@
 .msr-relojMundial:not(:first-child) {
 	border-top: 1px solid #202020;
 }
+
+.offsetFix {
+	overflow-x: auto;
+}
+
+.msr-icon-plus {
+	color: #f39f0d;
+	cursor: pointer;
+}
